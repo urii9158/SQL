@@ -1,21 +1,23 @@
 package ru.netology.test;
 
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.*;
 import ru.netology.data.DataHelper;
 import ru.netology.data.SQLHelper;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import ru.netology.page.LoginPage;
 import static com.codeborne.selenide.Selenide.open;
 import static ru.netology.data.SQLHelper.cleanDatabase;
 
-public class SQLTest {
+public class BankLoginTest {
 
     LoginPage loginPage;
 
+//  @AfterEach
+//  void tearDown() {
+//      cleanAuthCodes();
+//  }
+
     @AfterAll
-    static void teardown() {
+    static void tearDownAll() {
         cleanDatabase();
     }
 
@@ -52,5 +54,4 @@ public class SQLTest {
         verificationPage.verifyErrorNotification("Ошибка! \nНеверно указан код! Попробуйте ещё раз.");
     }
 }
-
 
